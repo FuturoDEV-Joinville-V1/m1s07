@@ -50,4 +50,9 @@ public class Material {
         materials.add(material);
         return material;
     }
+
+    public static boolean removeMaterial(Material material) {
+        return materials.remove(material);
+    }
+
 }

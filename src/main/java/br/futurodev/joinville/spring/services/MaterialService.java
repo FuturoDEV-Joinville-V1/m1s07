@@ -73,6 +73,13 @@ public class MaterialService {
         return null;
     }
 
+    public void delete(Long id) {
+        Material material = this.findMaterialById(id);
+        if (material != null) {
+            Material.removeMaterial(material);
+        }
+    }
+
     private Material findMaterialById(Long id) {
         for (Material material : Material.getMaterials()) {
             if (material.getId().equals(id)) {

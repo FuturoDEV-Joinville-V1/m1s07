@@ -5,6 +5,7 @@ import br.futurodev.joinville.spring.dtos.MaterialResponseDto;
 import br.futurodev.joinville.spring.services.MaterialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -39,4 +40,12 @@ public class MaterialController {
     ) {
         return service.update(id, dto);
     }
+
+    @DeleteMapping("{id}")
+//    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public ResponseEntity<Void> delete(@PathVariable Long id) {
+        service.delete(id);
+        return ResponseEntity.noContent().build();
+    }
+
 }
